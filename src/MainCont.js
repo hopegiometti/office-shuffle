@@ -28,7 +28,7 @@ export const MainCont = () => {
     }
 
     return ( <>
-        {randEp ? <RandomEpCont /> : <></>}
+        {randEp ? <RandomEpCont displayEp={randEp}/> : <></>}
         <ShuffleButton allEps={Object.values(episodes)[1]} shuffleEpisodes={shuffleEpisodes}/>
     </> )
 }
