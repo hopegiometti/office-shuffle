@@ -6,16 +6,30 @@ export const MainCont = () => {
     const [episodes, setEpisodes] = useState([])
     const [randEp, setRandEp] = useState()
 
+    // useEffect(() => {
+    //     fetch('https://api.thetvdb.com/series/73244/episodes')
+    //     .then(r => r.json())
+    //     .then(setEpisodes)
+    // }, []
+    // )
+
     useEffect(() => {
-        fetch('https://api.thetvdb.com/series/73244/episodes')
-        .then(r => r.json())
-        .then(setEpisodes)
-    }, []
-    )
+        fetch("https://tvjan-tvmaze-v1.p.rapidapi.com/shows/526/episodes", {
+	    "method": "GET",
+	    "headers": {
+		"x-rapidapi-host": "tvjan-tvmaze-v1.p.rapidapi.com",
+		"x-rapidapi-key": "9cbcfe5e94mshf2c040af5a6fbbfp1c3b83jsneaac07fbf887"
+	}
+    })
+    .then(r => r.json())
+    .then(setEpisodes)
+}, [])
 
     useEffect(() => {
         // console.log(randEp ? "we have a rand ep" : "no rand ep")
-        console.log(randEp)
+        // console.log(randEp)
+        // console.log(episodes)
+        console.log(Object.values(episodes).length)
     })
 
     const shuffleEpisodes = (eps) => {
@@ -29,7 +43,7 @@ export const MainCont = () => {
 
     return ( <>
         {randEp ? <RandomEpCont displayEp={randEp}/> : <></>}
-        <ShuffleButton allEps={Object.values(episodes)[1]} shuffleEpisodes={shuffleEpisodes}/>
+        <ShuffleButton allEps={Object.values(episodes)} shuffleEpisodes={shuffleEpisodes}/>
     </> )
 }
 

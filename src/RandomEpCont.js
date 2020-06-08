@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const RandomEpCont = (displayEp) => {
+    useEffect(() => {
+        console.log(Object.values(displayEp)[0])
+    })
+
     return ( <>
-        {console.log(Object.values(displayEp)[0].episodeName)}
-        <h1>{Object.values(displayEp)[0].episodeName}</h1>
-        <h4>Season: {Object.values(displayEp)[0].airedSeason}, Episode Number: {Object.values(displayEp)[0].airedEpisodeNumber}</h4>
+        <img src={Object.values(displayEp)[0].image.original} alt="office ep photo"/>
+        <h1>{Object.values(displayEp)[0].name}</h1>
+        <h4>Season: {Object.values(displayEp)[0].season}, Episode Number: {Object.values(displayEp)[0].number}</h4>
     </> )
 }
 
