@@ -12,8 +12,8 @@ export const MainCont = () => {
     )
 
     return ( <>
-        {console.log(episodes)}
-        <ShuffleButton allEps={episodes.data}/>
+        {/* {console.log(Object.values(episodes)[1])} */}
+        <ShuffleButton allEps={Object.values(episodes)[1]}/>
     </> )
 }
 
