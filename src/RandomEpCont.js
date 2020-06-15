@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+let StyledHOne = styled.h1`
+    text-align: center;
+`
+let StyledHFour = styled.h4`
+    text-align: center;
+`
 
 export const RandomEpCont = (displayEp) => {
     // useEffect(() => {
@@ -6,9 +14,9 @@ export const RandomEpCont = (displayEp) => {
     // })
 
     return ( <>
-        <img src={Object.values(displayEp)[0].image.medium} alt="office ep photo"/>
-        <h1>{Object.values(displayEp)[0].name}</h1>
-        <h4>Season: {Object.values(displayEp)[0].season}, Episode Number: {Object.values(displayEp)[0].number}</h4>
+        {/* <img src={Object.values(displayEp)[0].image.medium} alt="office ep photo"/> */}
+        <StyledHOne>{Object.values(displayEp)[0].name}</StyledHOne>
+        <StyledHFour>Season: {Object.values(displayEp)[0].season}, Episode Number: {Object.values(displayEp)[0].number}</StyledHFour>
     </> )
 }
 
