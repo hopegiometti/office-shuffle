@@ -44,8 +44,10 @@ export const MainCont = () => {
 
     return ( <>
         {randEp ? <RandomEpCont displayEp={randEp}/> : <></>}
-        <img src={PrisonMike} alt="photo of prison mike"/>
-        <ShuffleButton allEps={Object.values(episodes)} shuffleEpisodes={shuffleEpisodes}/>
+        {/* <img src={PrisonMike} alt="photo of prison mike"/> */}
+        <div>
+            <ShuffleButton allEps={Object.values(episodes)} shuffleEpisodes={shuffleEpisodes}/>
+        </div>
     </> )
 }
 
