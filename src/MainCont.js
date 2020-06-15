@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ShuffleButton from './ShuffleButton'
 import RandomEpCont from './RandomEpCont'
+import PrisonMike from './prisonmike.png'
 
 export const MainCont = () => {
     const [episodes, setEpisodes] = useState([])
@@ -25,12 +26,12 @@ export const MainCont = () => {
     .then(setEpisodes)
 }, [])
 
-    useEffect(() => {
+    // useEffect(() => {
         // console.log(randEp ? "we have a rand ep" : "no rand ep")
         // console.log(randEp)
         // console.log(episodes)
-        console.log(Object.values(episodes).length)
-    })
+        // console.log(Object.values(episodes).length)
+    // })
 
     const shuffleEpisodes = (eps) => {
         if (eps === 'null' || typeof eps === 'undefined') {
@@ -43,6 +44,7 @@ export const MainCont = () => {
 
     return ( <>
         {randEp ? <RandomEpCont displayEp={randEp}/> : <></>}
+        <img src={PrisonMike} alt="photo of prison mike"/>
         <ShuffleButton allEps={Object.values(episodes)} shuffleEpisodes={shuffleEpisodes}/>
     </> )
 }
