@@ -3,6 +3,15 @@ import PrisonMike from './prisonmike.png'
 import styled from 'styled-components'
 
 export default class ShuffleButton extends React.Component {
+    state={
+        hover: false
+    }
+
+    onMouseOverHandler = () => {
+        this.setState({
+            hover: !this.state.hover
+        }, () => {console.log(this.state)})
+    }
 
     render() {
 
@@ -17,9 +26,10 @@ export default class ShuffleButton extends React.Component {
         `
 
         return(<>
-            <StyledDiv>
+            <StyledDiv onMouseEnter={this.onMouseOverHandler} onMouseLeave={this.onMouseOverHandler}>
                 <StyledButton onClick={() => this.props.shuffleEpisodes(this.props.allEps)}><img src={PrisonMike} alt="photo of prison mike"/></StyledButton>
             </StyledDiv>
         </>)
     }
 }
+// {this.state.hover ? <StyledButton onClick={() => this.props.shuffleEpisodes(this.props.allEps)}><img src={PrisonMike} alt="photo of prison mike"/></StyledButton>}
